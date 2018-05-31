@@ -1,0 +1,17 @@
+.fondo {
+  background-image: url("../../assets/images/hero-background.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+
+  margin-bottom:0
+}
+
+hr {
+  border-color: #F5B041;
+  border-width: 2px;
+}
+
+.jumbotron {
+    padding: 4rem 2rem 2rem 2rem;
+}
