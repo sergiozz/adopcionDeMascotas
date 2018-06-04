@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 //IMPORT SERVICES
@@ -16,6 +17,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { GrillaComponent } from './grilla/grilla.component';
 import { VisitaComponent } from './visita/visita.component';
+import { BuscadorComponent } from './buscador/buscador.component';
+import { CargaDeVisitaComponent } from './carga-de-visita/carga-de-visita.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,16 @@ import { VisitaComponent } from './visita/visita.component';
     FooterComponent,
     NavigationBarComponent,
     GrillaComponent,
-    VisitaComponent
+    VisitaComponent,
+    BuscadorComponent,
+    CargaDeVisitaComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [MascotasService],

@@ -17,9 +17,19 @@ export class MascotasService {
     constructor(private http: Http) { }
 
     mascotas(tipo:any): Promise<Dog> {
-        let recurso = this.path +"/mascotas";
+        let recurso = this.path +"mascotas/";
 
         return this.http.get(recurso)
+            .toPromise()
+            .then(response => response.json() as any[])
+            .catch(this.handleError);
+    }
+
+    getMascotasNombre(nombre:any): Promise<Dog> {
+        let recurso = this.path +"getMascotasNombre/";
+
+        return this.http
+            .post(recurso, nombre, {headers: this.headers})
             .toPromise()
             .then(response => response.json() as any[])
             .catch(this.handleError);
