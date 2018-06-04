@@ -3,23 +3,18 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-2 " style="padding-left: 0">
-
-      <h2>About Me</h2>
-      <h5>Photo of me:</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
+      <h3>Inicio</h3>
+      <p>Un amigo es un amigo y ... ¡UN AMIGO NO SE COMPRA!</p>
 
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-          <a class="nav-link active" href="#">En Adopción</a>
+          <a class="nav-link active" href="grilla">En Adopción</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Búsqueda</a>
+          <a class="nav-link" href="visita">Búsqueda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Visita medica</a>
+          <a class="nav-link" href="visita">Visita medica</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Puntuar</a>
@@ -30,7 +25,7 @@
 
     <div class="col-sm-10">
       <div class="row">
-        <app-grilla> </app-grilla>
+        <router-outlet></router-outlet>
       </div>
     </div>
 
