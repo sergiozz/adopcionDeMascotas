@@ -6,7 +6,7 @@ import { Dog } from '../grilla/dog';
 @Injectable()
 export class MascotasService {
 
-    private path = 'http://localhost:8080/Mascotas/api/';
+    private path = 'http://localhost/mascotas/';
 
     private headers = new Headers({'Content-Type': 'application/json'});
     private handleError(error: any): Promise<any> {
@@ -17,7 +17,7 @@ export class MascotasService {
     constructor(private http: Http) { }
 
     mascotas(tipo:any): Promise<Dog> {
-        let recurso = this.path +"mascotas/";
+        let recurso = this.path +"api/mascotas";
 
         return this.http.get(recurso)
             .toPromise()
@@ -26,10 +26,10 @@ export class MascotasService {
     }
 
     getMascotasNombre(nombre:any): Promise<Dog> {
-        let recurso = this.path +"getMascotasNombre/";
+        let recurso = this.path +"GetMascotasNombre";
 
         return this.http
-            .post(recurso, nombre, {headers: this.headers})
+            .get(recurso, {params: {nombre: nombre}})
             .toPromise()
             .then(response => response.json() as any[])
             .catch(this.handleError);

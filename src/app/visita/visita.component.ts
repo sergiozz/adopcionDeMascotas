@@ -22,9 +22,9 @@ export class VisitaComponent implements OnInit {
 
   queryForNameMascota() {
     console.log(this.queryNameMascota)
-    // this.mascotasService.getMascotasNombre(this.queryNameMascota).then(data => {
-    //     console.log(data)
-    // });
+    this.mascotasService.getMascotasNombre(this.queryNameMascota).then(data => {
+        console.log(data)
+    });
 
     this.isEnabled = true;
   }
