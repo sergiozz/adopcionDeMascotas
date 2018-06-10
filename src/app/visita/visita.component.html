@@ -5,5 +5,9 @@
 </div>
 
 <div style="margin-left: 16px; margin-top: 20px;" *ngIf="isEnabled">
-  <app-grilla></app-grilla>
+  <app-spinner *ngIf="showSpinner"></app-spinner>
+
+  <div *ngIf = "!showSpinner">
+    <app-grilla></app-grilla>
+  </div>
 </div>

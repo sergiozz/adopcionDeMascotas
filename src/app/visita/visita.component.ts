@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MascotasService } from '../services/mascotas.service';
 import { DogService } from '../grilla/dog.service';
 
+import { Mascota} from '../models/mascota';
+
 @Component({
   selector: 'app-visita',
   templateUrl: './visita.component.html',
@@ -12,6 +14,7 @@ export class VisitaComponent implements OnInit {
 
   queryNameMascota: string;
   isEnabled: boolean;
+  showSpinner: boolean = false;
 
   constructor(private mascotasService: MascotasService, private dogService: DogService) { }
 
@@ -22,9 +25,14 @@ export class VisitaComponent implements OnInit {
 
   queryForNameMascota() {
     console.log(this.queryNameMascota)
+    this.showSpinner = true;
     this.mascotasService.getMascotasNombre(this.queryNameMascota).then(data => {
-        console.log(data)
+      let listadoMascotas = <Mascota[]>data['mascotas'];
+      console.log(data);
     });
+    setTimeout(()=>{
+      this.showSpinner = false;
+    },1500);
 
     this.isEnabled = true;
   }

@@ -17,8 +17,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { GrillaComponent } from './grilla/grilla.component';
 import { VisitaComponent } from './visita/visita.component';
-import { BuscadorComponent } from './buscador/buscador.component';
 import { CargaDeVisitaComponent } from './carga-de-visita/carga-de-visita.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +28,8 @@ import { CargaDeVisitaComponent } from './carga-de-visita/carga-de-visita.compon
     NavigationBarComponent,
     GrillaComponent,
     VisitaComponent,
-    BuscadorComponent,
-    CargaDeVisitaComponent
+    CargaDeVisitaComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
