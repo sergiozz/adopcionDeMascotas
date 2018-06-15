@@ -27,12 +27,11 @@ export class VisitaComponent implements OnInit {
     console.log(this.queryNameMascota)
     this.showSpinner = true;
     this.mascotasService.getMascotasNombre(this.queryNameMascota).then(data => {
-      let listadoMascotas = <Mascota[]>data['mascotas'];
-      console.log(data);
-    });
-    setTimeout(()=>{
+      let listadoMascotas = data;
+      console.log(listadoMascotas);
       this.showSpinner = false;
-    },1500);
+    });
+    
 
     this.isEnabled = true;
   }

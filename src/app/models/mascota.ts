@@ -9,4 +9,5 @@ export class Mascota {
   tamañoId :string;
   caracter :string;
   observaciones :string;
+  avatar :string;
 }
