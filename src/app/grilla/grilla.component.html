@@ -1,11 +1,11 @@
 <div class="row">
 
-  <div class="col-lg-4 col-sm-4" *ngFor="let dog of dogs">
-    <a href="/visita/{{dog.name}}">
-      <img src="{{pathAvatar + dog.avatar}}" style="width:100%">
+  <div class="col-lg-4 col-sm-4" *ngFor="let mascota of listadoMascotas">
+    <a href="/visita/{{mascota.Id}}">
+      <img src="{{pathAvatar + mascota.avatar}}" style="width:100%">
       <div class="caption">
-        <p style="font-size: 24px"> {{dog.nombre}} - {{dog.edad}}</p>
-        <p style="font-size: 16px"> {{dog.description}}</p>
+        <p style="font-size: 24px"> {{mascota.nombre}} - {{mascota.edad}}</p>
+        <p style="font-size: 16px"> {{mascota.observaciones}}</p>
       </div>
     </a>
   </div>

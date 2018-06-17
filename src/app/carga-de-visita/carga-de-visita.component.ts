@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { Mascota} from '../models/mascota';
+import { Mascota } from '../models/mascota';
 
 @Component({
   selector: 'app-carga-de-visita',

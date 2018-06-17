@@ -5,7 +5,6 @@ import { HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 //IMPORT SERVICES
 import { MascotasService } from './services/mascotas.service';

@@ -1,37 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { DogService } from './dog.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Http , Headers } from '@angular/http';
 import { MascotasService } from '../services/mascotas.service';
-import { Mascota } from '../models/mascota.ts';
-
+import { Mascota } from '../models/mascota';
 
 @Component({
   selector: 'app-grilla',
   templateUrl: './grilla.component.html',
   styleUrls: ['./grilla.component.css'],
-  providers: [DogService, MascotasService]
+  providers: [ MascotasService]
 })
 export class GrillaComponent implements OnInit {
 
-  dogs : Mascotas[];
+  @Input() listadoMascotas: Mascota[];
   pathAvatar: string = 'http://localhost/mascotas/Imagenes/';
 
-  constructor(private dogService: DogService, private mascotasService: MascotasService) { }
-
-  getDogs(): void {
-   //this.dogs = this.dogService.getDogsList();
-   //this.mascotasService.getAllMascotas("PERROS").then(data=> {
-  //  console.log(data)
-  //    });
-  
-    this.mascotasService.getMascotasNombre('perri').then(data => {
-      this.dogs = data;
-      console.log(this.dogs);
-    });
-  }
+  constructor(private mascotasService: MascotasService) { }
 
   ngOnInit() {
-    this.getDogs();
   }
 
 }

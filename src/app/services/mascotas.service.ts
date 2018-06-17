@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http , Headers } from '@angular/http';
 
-import { Dog } from '../grilla/dog';
+import { Mascota } from '../models/mascota';
 
 @Injectable()
 export class MascotasService {
@@ -16,7 +16,7 @@ export class MascotasService {
 
     constructor(private http: Http) { }
 
-    mascotas(tipo:any): Promise<Dog> {
+    mascotas(tipo:any): Promise<Mascota[]> {
         let recurso = this.path +"api/mascotas";
 
         return this.http.get(recurso)
@@ -25,7 +25,7 @@ export class MascotasService {
             .catch(this.handleError);
     }
 
-    getMascotasNombre(nombre:any): Promise<Dog> {
+    getMascotasNombre(nombre:any): Promise<Mascota[]> {
         let recurso = this.path +"GetMascotasNombre";
 
         return this.http
