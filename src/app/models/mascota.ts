@@ -1,3 +1,6 @@
+import { Raza } from './raza';
+import { Tamaño } from './tamanio';
+import { Estudio } from './estudio';
 
 export class Mascota {
   Id :string;
@@ -10,4 +13,7 @@ export class Mascota {
   caracter :string;
   observaciones :string;
   avatar :string;
+  raza : Raza;
+  tamaño : Tamaño;
+  estudio: Estudio[];
 }
