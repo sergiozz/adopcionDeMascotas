@@ -6,21 +6,73 @@
           <img src="../../assets/images/dogs-pictures/1.jpg" style="width:100%">
       </div>
       <div class="caption col-lg-4 col-sm-4">
-        <p style="font-size: 24px"> {{id}} 22 anios</p>
+        <p style="font-size: 24px"> {{id}} 22 años</p>
         <p style="font-size: 16px"> Sisqo es un perro muy amoroso, ya esta viejito y no escucha muy bien. Le encanta cazar ratas.</p>
       </div>
   </div>
 
   <div class="row" style="margin-top: 16px;">
-      <div class="caption col-lg-4 col-sm-4">
-        <p style="font-size: 24px"> Estudios </p>
-        <p style="font-size: 16px"> completar ... </p>
+      <div style="width:80%">
+        <p style="font-size: 24px"> Historico de Estudios </p>
+        <table class="table">
+          <tr>
+            <th>Control</th>
+            <th>Observacion</th>
+            <th>Vencimiento</th>
+          </tr>
+          <tr>
+            <td>vacuna</td>
+            <td>todo ok</td>
+            <td>1 año</td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+  <div class="row" style="margin-top: 16px;">
+      <div style="width:80%">
+        <p style="font-size: 24px"> Nuevo estudio </p>
+        <table class="table" id="nuevoEstudio">
+          <tr>
+            <th>Control</th>
+            <th>Observacion</th>
+            <th>Vencimiento</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>control</td>
+            <td>patita lastimada</td>
+            <td>2 año</td>
+            <td><button class="btn btn-danger pull-right" (click)='deleteEstudio()'> Eliminar </button></td>
+          </tr>
+        </table>
+
       </div>
   </div>
 
   <div class="col-xs-12 col-12 col-md-4 form-group">
-    <label>Monto: <input type="number" [(ngModel)]="moneyValue"> </label>
-    <label>Fecha: <input type="date" [(ngModel)]="dateValue"> </label>
+      <div class="col-lg-4 col-sm-4" >
+        <label>Tipo estudio:
+          <select name="Estudios" [(ngModel)]="tipoEstudioValue">
+             <option value="1">Vacuna</option>
+             <option value="2">Fractura</option>
+             <option value="3">Baño</option>
+             <option value="10">Control</option>
+          </select>
+        </label>
+        <label>Vto: <input type="date" [(ngModel)]="vtoValue"> </label>
+        <label>Observaciones: <input type="text" [(ngModel)]="obsValue"> </label>
+      </div>
+      <div class="col-lg-4 col-sm-4" >
+        <label>Monto: <input type="number" placeholder="0.00" [(ngModel)]="moneyValue"> </label>
+      </div>
+      <div class="col-lg-4 col-sm-4" >
+        <label>Fecha: <input type="date" [(ngModel)]="dateValue"> </label>
+      </div>
+      <div class="col-lg-4 col-sm-4" >
+        <button class="btn btn-success pull-right" style="margin-top: 16px" (click)='saveUnEstudio()'> Añadir estudio </button>
+        <button type="submit" class="btn btn-success pull-right" style="margin-top: 16px" (click)='saveEstudiosMascota()'> Guardar Todo </button>
+      </div>
   </div>
 
 </div>
