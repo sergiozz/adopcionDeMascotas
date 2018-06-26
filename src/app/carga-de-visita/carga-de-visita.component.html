@@ -31,7 +31,7 @@
 
   <div class="row" style="margin-top: 16px;">
       <div style="width:80%">
-        <p style="font-size: 24px"> Nuevo estudio </p>
+        <p style="font-size: 24px"> Nuevos estudios </p>
         <table class="table" id="nuevoEstudio">
           <tr>
             <th>Control</th>
@@ -50,29 +50,53 @@
       </div>
   </div>
 
-  <div class="col-xs-12 col-12 col-md-4 form-group">
-      <div class="col-lg-4 col-sm-4" >
-        <label>Tipo estudio:
-          <select name="Estudios" [(ngModel)]="tipoEstudioValue">
-             <option value="1">Vacuna</option>
-             <option value="2">Fractura</option>
-             <option value="3">Baño</option>
-             <option value="10">Control</option>
-          </select>
-        </label>
-        <label>Vto: <input type="date" [(ngModel)]="vtoValue"> </label>
-        <label>Observaciones: <input type="text" [(ngModel)]="obsValue"> </label>
+  <form role="form" class="form-control input-lg">
+			<h2>Añadir nuevo estudio</h2>
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group" >
+            <label>Tipo estudio:
+              <select name="Estudios" [(ngModel)]="tipoEstudioValue"  class="form-control input-lg">
+                 <option value="1">Vacuna</option>
+                 <option value="2">Fractura</option>
+                 <option value="3">Baño</option>
+                 <option value="4"> sesion completa de revision general</option>
+                 <option value="10">Control</option>
+              </select>
+            </label>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+            <label>Vto: <input type="date" [(ngModel)]="vtoValue" class="form-control input-lg" > </label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+      Observaciones: <input type="text" [(ngModel)]="obsValue" class="form-control input-lg">
+			</div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4">
+            <button  class="btn btn-success btn-block btn-lg"  (click)='saveUnEstudio()'> Añadir </button>
+        </div>
       </div>
-      <div class="col-lg-4 col-sm-4" >
-        <label>Monto: <input type="number" placeholder="0.00" [(ngModel)]="moneyValue"> </label>
+		</form>
+
+    <div class="row" style="margin-top: 16px; margin-bottom: 24px; ">
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="form-group">
+          <label>Monto: <input type="number" placeholder="0.00" [(ngModel)]="moneyValue" class="form-control input-lg"> </label>
+        </div>
       </div>
-      <div class="col-lg-4 col-sm-4" >
-        <label>Fecha: <input type="date" [(ngModel)]="dateValue"> </label>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="form-group">
+          <label>Fecha: <input type="date" [(ngModel)]="dateValue" class="form-control input-lg" > </label>
+        </div>
       </div>
-      <div class="col-lg-4 col-sm-4" >
-        <button class="btn btn-success pull-right" style="margin-top: 16px" (click)='saveUnEstudio()'> Añadir estudio </button>
-        <button type="submit" class="btn btn-success pull-right" style="margin-top: 16px" (click)='saveEstudiosMascota()'> Guardar Todo </button>
+      <div class="col-xs-12 col-sm-4 col-md-4" >
+        <button type="submit" class="btn btn-success btn-block btn-lg" style="margin-top: 16px"  (click)='saveEstudiosMascota()'> Guardar Todo </button>
       </div>
-  </div>
+    </div>
 
 </div>
