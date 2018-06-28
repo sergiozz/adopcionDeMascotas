@@ -1,6 +1,6 @@
 <div style="margin-left: 16px;">
   <h3> Visita veterinaria</h3>
-  <input type="text" size="50" [(ngModel)]="queryNameMascota" placeholder="Ingrese el nombre de la mascota" >
+  <input type="text" size="50" [(ngModel)]="queryNameMascota" (keyup.enter)="queryForNameMascota()" placeholder="Ingrese el nombre de la mascota" >
   <button type="submit" class="btn btn-success pull-right" style="margin-left: 16px" (click)='queryForNameMascota()'> Buscar </button>
 </div>
 
@@ -8,6 +8,9 @@
   <app-spinner *ngIf="showSpinner"></app-spinner>
 
   <div *ngIf = "!showSpinner">
-    <app-grilla [listadoMascotas]="listadoMascotas"></app-grilla>
+    <app-grilla [listadoMascotas]="listadoMascotas" *ngIf="listadoMascotas"></app-grilla>
+    <div *ngIf = "listadoMascotas.length === 0">
+      No hay resultados.
+    </div>
   </div>
 </div>

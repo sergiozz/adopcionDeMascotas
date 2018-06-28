@@ -3,11 +3,12 @@
 
   <div class="row" style="margin-top: 16px;">
       <div class="col-lg-4 col-sm-4" >
-          <img src="../../assets/images/dogs-pictures/1.jpg" style="width:100%">
+          <img src="{{pathAvatar + mascota.avatar}}" style="width:100%">
       </div>
       <div class="caption col-lg-4 col-sm-4">
-        <p style="font-size: 24px"> {{id}} 22 años</p>
-        <p style="font-size: 16px"> Sisqo es un perro muy amoroso, ya esta viejito y no escucha muy bien. Le encanta cazar ratas.</p>
+        <p style="font-size: 24px"> {{mascota.nombre}} {{mascota.edad}} {{mascota.razaId}}</p>
+        <p style="font-size: 18px; margin-bottom: 0"> Sexo: {{mascota.sexo}} Color: {{mascota.color}} Tamaño: {{mascota.tamanioId}} Caracter: {{mascota.caracter}}</p>
+        <p style="font-size: 15px"> {{mascota.observaciones}}</p>
       </div>
   </div>
 
@@ -36,13 +37,11 @@
           <tr>
             <th>Control</th>
             <th>Observacion</th>
-            <th>Vencimiento</th>
             <th></th>
           </tr>
           <tr>
             <td>control</td>
             <td>patita lastimada</td>
-            <td>2 año</td>
             <td><button class="btn btn-danger pull-right" (click)='deleteEstudio()'> Eliminar </button></td>
           </tr>
         </table>
@@ -62,14 +61,9 @@
                  <option value="2">Fractura</option>
                  <option value="3">Baño</option>
                  <option value="4"> sesion completa de revision general</option>
-                 <option value="10">Control</option>
+                 <option value="5">Control</option>
               </select>
             </label>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-            <label>Vto: <input type="date" [(ngModel)]="vtoValue" class="form-control input-lg" > </label>
 					</div>
 				</div>
 			</div>

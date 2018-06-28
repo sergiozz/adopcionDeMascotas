@@ -3,9 +3,9 @@
   <div class="col-lg-4 col-sm-4" *ngFor="let mascota of listadoMascotas">
     <a href="/visita/{{mascota.Id}}">
       <img src="{{pathAvatar + mascota.avatar}}" style="width:100%">
-      <div class="caption">
-        <p style="font-size: 24px"> {{mascota.nombre}} - {{mascota.edad}}</p>
-        <p style="font-size: 16px"> {{mascota.observaciones}}</p>
+      <div>
+        <p style="font-size: 24px; margin-bottom: 0"> {{mascota.nombre}} - {{mascota.edad}}</p>
+        <p style="font-size: 16px"> Raza: {{mascota.razaId}} Sexo: {{mascota.sexo}} Color: {{mascota.color}}</p>
       </div>
     </a>
   </div>

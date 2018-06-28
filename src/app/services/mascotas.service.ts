@@ -35,4 +35,14 @@ export class MascotasService {
             .catch(this.handleError);
     }
 
+    getMascota(id:any): Promise<Mascota> {
+        let recurso = this.path +"api/Mascotas/";
+
+        return this.http
+            .get(recurso, {params: {id: id}})
+            .toPromise()
+            .then(response => response.json() as any[])
+            .catch(this.handleError);
+    }
+
 }
