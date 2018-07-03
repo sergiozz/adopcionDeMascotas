@@ -2,11 +2,12 @@
   <h3> Carga de visita veterinaria</h3>
 
   <div class="row" style="margin-top: 16px;">
-      <div class="col-lg-4 col-sm-4" >
+      <app-spinner *ngIf="showSpinnerPerfil"></app-spinner>
+      <div class="col-lg-4 col-sm-4" *ngIf="!showSpinnerPerfil">
           <img src="{{pathAvatar + mascota.avatar}}" style="width:100%">
       </div>
-      <div class="caption col-lg-4 col-sm-4">
-        <p style="font-size: 24px"> {{mascota.nombre}} {{mascota.edad}} {{mascota.razaId}}</p>
+      <div class="caption col-lg-4 col-sm-4" *ngIf="!showSpinnerPerfil">
+        <p style="font-size: 24px"> {{mascota.nombre}} {{mascota.edad}} {{razaMascota}}</p>
         <p style="font-size: 18px; margin-bottom: 0"> Sexo: {{mascota.sexo}} Color: {{mascota.color}} Tamaño: {{mascota.tamanioId}} Caracter: {{mascota.caracter}}</p>
         <p style="font-size: 15px"> {{mascota.observaciones}}</p>
       </div>
@@ -21,10 +22,11 @@
             <th>Observacion</th>
             <th>Vencimiento</th>
           </tr>
-          <tr>
-            <td>vacuna</td>
-            <td>todo ok</td>
-            <td>1 año</td>
+          <app-spinner *ngIf="showSpinnerHistorico"></app-spinner>
+          <tr *ngFor="let historico of estudiosHistorico">
+            <td>{{historico.tipoEstudioId}}</td>
+            <td>{{historico.observaciones ? historico.observaciones : '-' }}</td>
+            <td>{{historico.fecha_vencimiento}}</td>
           </tr>
         </table>
       </div>
