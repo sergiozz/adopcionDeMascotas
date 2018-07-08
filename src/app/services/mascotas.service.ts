@@ -4,6 +4,8 @@ import { Http , Headers } from '@angular/http';
 import { Mascota } from '../models/mascota';
 import { Estudio } from '../models/estudio';
 
+import { TipoEstudio } from '../models/tipoEstudio';
+
 @Injectable()
 export class MascotasService {
 
@@ -61,6 +63,16 @@ export class MascotasService {
 
         return this.http
             .get(recurso, {params: {id: id}})
+            .toPromise()
+            .then(response => response.json() as any[])
+            .catch(this.handleError);
+    }
+
+    getAllEstudios(): Promise<TipoEstudio[]> {
+        let recurso = this.path +"api/TipoEstudios/";
+
+        return this.http
+            .get(recurso)
             .toPromise()
             .then(response => response.json() as any[])
             .catch(this.handleError);

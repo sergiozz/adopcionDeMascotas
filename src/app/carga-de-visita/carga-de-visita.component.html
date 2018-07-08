@@ -35,46 +35,42 @@
   <div class="row" style="margin-top: 16px;">
       <div style="width:80%">
         <p style="font-size: 24px"> Nuevos estudios </p>
-        <table class="table" id="nuevoEstudio">
+        <table class="table" id="nuevoEstudio" *ngIf="estudiosAgregados.length !== 0">
           <tr>
             <th>Control</th>
             <th>Observacion</th>
             <th></th>
           </tr>
-          <tr>
-            <td>control</td>
-            <td>patita lastimada</td>
-            <td><button class="btn btn-danger pull-right" (click)='deleteEstudio()'> Eliminar </button></td>
+          <tr *ngFor="let agregado of estudiosAgregados; index as i">
+            <td>{{agregado.descripcion}}</td>
+            <td>{{agregado.observaciones}}</td>
+            <td><button class="btn btn-danger pull-right" (click)='deleteEstudio(i)'> Eliminar </button></td>
           </tr>
         </table>
-
       </div>
   </div>
 
-  <form role="form" class="form-control input-lg">
+  <form [formGroup]="estudioFormInput" role="form" class="form-control input-lg">
 			<h2>Añadir nuevo estudio</h2>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group" >
             <label>Tipo estudio:
-              <select name="Estudios" [(ngModel)]="tipoEstudioValue"  class="form-control input-lg">
-                 <option value="1">Vacuna</option>
-                 <option value="2">Fractura</option>
-                 <option value="3">Baño</option>
-                 <option value="4"> sesion completa de revision general</option>
-                 <option value="5">Control</option>
+              <select name="Estudios" [(ngModel)]="tipoEstudioValue"  class="form-control input-lg" formControlName = "Estudios">
+                 <option [ngValue]=null>-- Seleccionar --</option>
+                 <option *ngFor="let estudio of todosLosEstudios" [ngValue]="estudio" >{{estudio.descripcion}}</option>
               </select>
             </label>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-      Observaciones: <input type="text" [(ngModel)]="obsValue" class="form-control input-lg">
+        Observaciones: <input type="text" [(ngModel)]="obsValue" class="form-control input-lg" formControlName = "Estudios">
 			</div>
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4">
-            <button  class="btn btn-success btn-block btn-lg"  (click)='saveUnEstudio()'> Añadir </button>
+            <button  class="btn btn-success btn-block btn-lg" [disabled]="tipoEstudioValue === null" (click)='saveUnEstudio()'> Añadir </button>
         </div>
       </div>
 		</form>
@@ -91,7 +87,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4" >
-        <button type="submit" class="btn btn-success btn-block btn-lg" style="margin-top: 16px"  (click)='saveEstudiosMascota()'> Guardar Todo </button>
+        <button type="submit" class="btn btn-success btn-block btn-lg" style="margin-top: 16px"  [disabled]="estudiosAgregados.length === 0 || dateValue === null" (click)='saveEstudiosMascota()'> Guardar Todo </button>
       </div>
     </div>
 
