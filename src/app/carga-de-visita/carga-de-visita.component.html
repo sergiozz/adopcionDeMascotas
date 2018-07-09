@@ -7,8 +7,8 @@
           <img src="{{pathAvatar + mascota.avatar}}" style="width:100%">
       </div>
       <div class="caption col-lg-4 col-sm-4" *ngIf="!showSpinnerPerfil">
-        <p style="font-size: 24px"> {{mascota.nombre}} {{mascota.edad}} {{razaMascota}}</p>
-        <p style="font-size: 18px; margin-bottom: 0"> Sexo: {{mascota.sexo}} Color: {{mascota.color}} Tamaño: {{mascota.tamanioId}} Caracter: {{mascota.caracter}}</p>
+        <p style="font-size: 24px"> {{mascota.nombre}} {{mascota.edad}} {{mascota.razaDescripcion}}</p>
+        <p style="font-size: 18px; margin-bottom: 0"> {{mascota.sexo === "M"? "Macho" : "Hembra" }} Color: {{mascota.color}} Tamaño: {{mascota.tamanioDescripcion}} Caracter: {{mascota.caracter}}</p>
         <p style="font-size: 15px"> {{mascota.observaciones}}</p>
       </div>
   </div>
@@ -21,12 +21,14 @@
             <th>Control</th>
             <th>Observacion</th>
             <th>Vencimiento</th>
+            <th>Veterinario</th>
           </tr>
           <app-spinner *ngIf="showSpinnerHistorico"></app-spinner>
           <tr *ngFor="let historico of estudiosHistorico">
-            <td>{{historico.tipoEstudioId}}</td>
+            <td>{{historico.tipoEstudioDescripcion}}</td>
             <td>{{historico.observaciones ? historico.observaciones : '-' }}</td>
             <td>{{historico.fecha_vencimiento}}</td>
+            <td>{{historico.veterinarioNombreApellido}}</td>
           </tr>
         </table>
       </div>

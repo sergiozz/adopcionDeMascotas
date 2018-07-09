@@ -18,7 +18,6 @@ export class CargaDeVisitaComponent implements OnInit {
 
   id : string;
   dateValue : string;
-  razaMascota : String;
   moneyValue : number;
   mascota : Mascota;
   pathAvatar: string = 'http://localhost/mascotas/Imagenes/';
@@ -26,7 +25,6 @@ export class CargaDeVisitaComponent implements OnInit {
   showSpinnerPerfil: boolean;
   showSpinnerHistorico: boolean;
   todosLosEstudios: TipoEstudio[];
-
   estudiosAgregados: EstudioAgregado[];
   tipoEstudioValue: TipoEstudio;
   obsValue: string;
@@ -44,6 +42,7 @@ export class CargaDeVisitaComponent implements OnInit {
   this.estudiosHistorico = new Array<Estudio>();
   this.estudiosAgregados = new Array<EstudioAgregado>();
   this.obsValue = null;
+  this.moneyValue = 0;
   this.showSpinnerPerfil = true;
   this.showSpinnerHistorico = true;
   this.dateValue = null;
@@ -57,24 +56,15 @@ export class CargaDeVisitaComponent implements OnInit {
  cargaDeDatosIniciales(){
    this.mascotasService.getMascota(this.id).then(data => {
      this.mascota = data;
-     this.mascotasService.getRaza(this.mascota.razaId).then(data2 => {
-       console.log(data2.descripcion)
-        this.razaMascota = data2.descripcion;
-        this.showSpinnerPerfil = false;
-     });
-     console.log(this.mascota);
-     // this.isEnabled = true;
-     // this.showSpinner = false;
+     this.showSpinnerPerfil = false;
    });
 
    this.mascotasService.getEstudios(this.id).then(data => {
-     console.log(data);
      this.estudiosHistorico = data;
      this.showSpinnerHistorico = false;
     });
     this.mascotasService.getAllEstudios().then(data => {
       this.todosLosEstudios = data;
-      console.log(data);
      });
   }
 
@@ -84,7 +74,6 @@ export class CargaDeVisitaComponent implements OnInit {
     aux.descripcion = this.tipoEstudioValue.descripcion;
     aux.observaciones = this.obsValue;
 
-    console.log(aux)
     this.estudiosAgregados.push(aux);
     this.tipoEstudioValue = null;
   }
@@ -93,10 +82,20 @@ export class CargaDeVisitaComponent implements OnInit {
     this.estudiosAgregados.splice(indice,1);
   }
 
-  saveEstudiosMascota(){
-    console.log(this.estudiosAgregados)
-    console.log(this.dateValue)
-    console.log(this.moneyValue)
+  saveEstudiosMascota() {
+    let aux = {
+      "veterinarioId": 4,
+      "mascotaId": this.id,
+      "fecha": this.dateValue,
+      "monto": this.moneyValue,
+      "estudio": this.estudiosAgregados
+    }
+    console.log(aux)
+
+    this.mascotasService.saveVisita(aux).then(data => {
+    console.log(data);
+    console.log(  "guardado exitoso");
+
   }
 
 }

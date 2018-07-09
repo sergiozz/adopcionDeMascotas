@@ -78,4 +78,14 @@ export class MascotasService {
             .catch(this.handleError);
     }
 
+    saveVisita(visita:any): Promise<any> {
+      let recurso = this.path + "api/Visitas/";
+
+      return this.http
+          .post(recurso, visita, {headers: this.headers})
+          .toPromise()
+          .then(res => res.json())
+          .catch(this.handleError);
+      }
+
 }
