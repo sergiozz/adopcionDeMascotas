@@ -89,13 +89,12 @@ export class CargaDeVisitaComponent implements OnInit {
       "fecha": this.dateValue,
       "monto": this.moneyValue,
       "estudio": this.estudiosAgregados
-    }
-    console.log(aux)
+    };
+    
+    console.log(aux);
 
     this.mascotasService.saveVisita(aux).then(data => {
     console.log(data);
-    console.log(  "guardado exitoso");
-
+    console.log( "guardado exitoso");});
   }
-
 }
