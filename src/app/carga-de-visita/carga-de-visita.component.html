@@ -27,7 +27,7 @@
           <tr *ngFor="let historico of estudiosHistorico">
             <td>{{historico.tipoEstudioDescripcion}}</td>
             <td>{{historico.observaciones ? historico.observaciones : '-' }}</td>
-            <td>{{historico.fecha_vencimiento}}</td>
+            <td>{{historico.fecha_vencimientoString}}</td>
             <td>{{historico.veterinarioNombreApellido}}</td>
           </tr>
         </table>
