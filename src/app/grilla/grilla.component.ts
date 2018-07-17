@@ -12,11 +12,17 @@ import { Mascota } from '../models/mascota';
 export class GrillaComponent implements OnInit {
 
   @Input() listadoMascotas: Mascota[];
+  @Input() actionVisita: boolean;;
   pathAvatar: string = 'http://localhost/mascotas/Imagenes/';
 
   constructor(private mascotasService: MascotasService) { }
 
   ngOnInit() {
+    if (!this.listadoMascotas) {
+      this.mascotasService.mascotas(null).then(data => {
+        this.listadoMascotas = data;
+      });
+    }
   }
 
 }

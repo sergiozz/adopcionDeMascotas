@@ -77,6 +77,26 @@
       </div>
 		</form>
 
+    <!-- Modal -->
+    <div class="modal fade" id="modalExito" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Guardado exitoso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            El estudio fue añadido con éxito.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row" style="margin-top: 16px; margin-bottom: 24px; ">
       <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="form-group">
@@ -89,7 +109,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4" >
-        <button type="submit" class="btn btn-success btn-block btn-lg" style="margin-top: 16px"  [disabled]="estudiosAgregados.length === 0 || dateValue === null" (click)='saveEstudiosMascota()'> Guardar Todo </button>
+        <button type="submit" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#modalExito" style="margin-top: 16px"  [disabled]="estudiosAgregados.length === 0 || dateValue === null" (click)='saveEstudiosMascota()'> Guardar Todo </button>
       </div>
     </div>
 

@@ -39,21 +39,21 @@ export class CargaDeVisitaComponent implements OnInit {
   }
 
   ngOnInit() {
-  this.estudiosHistorico = new Array<Estudio>();
-  this.estudiosAgregados = new Array<EstudioAgregado>();
-  this.obsValue = null;
-  this.moneyValue = 0;
-  this.showSpinnerPerfil = true;
-  this.showSpinnerHistorico = true;
-  this.dateValue = null;
-
-  this.route.params.subscribe(params => {
-     this.id = params['id'];
-     this.cargaDeDatosIniciales();
-   });
+    this.route.params.subscribe(params => {
+       this.id = params['id'];
+       this.cargaDeDatosIniciales();
+     });
   }
 
  cargaDeDatosIniciales(){
+   this.estudiosHistorico = new Array<Estudio>();
+   this.estudiosAgregados = new Array<EstudioAgregado>();
+   this.obsValue = null;
+   this.moneyValue = 0;
+   this.showSpinnerPerfil = true;
+   this.showSpinnerHistorico = true;
+   this.dateValue = null;
+
    this.mascotasService.getMascota(this.id).then(data => {
      this.mascota = data;
      this.showSpinnerPerfil = false;
@@ -73,7 +73,6 @@ export class CargaDeVisitaComponent implements OnInit {
     aux.tipoEstudioId = this.tipoEstudioValue.Id;
     aux.descripcion = this.tipoEstudioValue.descripcion;
     aux.observaciones = this.obsValue;
-
     this.estudiosAgregados.push(aux);
     this.tipoEstudioValue = null;
   }
@@ -90,11 +89,9 @@ export class CargaDeVisitaComponent implements OnInit {
       "monto": this.moneyValue,
       "estudio": this.estudiosAgregados
     };
-    
-    console.log(aux);
 
     this.mascotasService.saveVisita(aux).then(data => {
-    console.log(data);
-    console.log( "guardado exitoso");});
+      this.cargaDeDatosIniciales();
+    });
   }
 }

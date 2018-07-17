@@ -17,6 +17,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { GrillaComponent } from './grilla/grilla.component';
 import { VisitaComponent } from './visita/visita.component';
 import { CargaDeVisitaComponent } from './carga-de-visita/carga-de-visita.component';
+import { AdopcionComponent } from './adopcion/adopcion.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     GrillaComponent,
     VisitaComponent,
     CargaDeVisitaComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AdopcionComponent
   ],
   imports: [
     BrowserModule,

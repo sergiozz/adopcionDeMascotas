@@ -1,7 +1,7 @@
 <div class="row">
 
   <div class="col-lg-4 col-sm-4" *ngFor="let mascota of listadoMascotas">
-    <a href="/visita/{{mascota.Id}}">
+    <a href="{{actionVisita ? '/visita/'+ mascota.Id : '/adopcion/'+ mascota.Id}}">
       <img src="{{pathAvatar + mascota.avatar}}" style="width:100%">
       <div>
         <p style="font-size: 24px; margin-bottom: 0"> {{mascota.nombre}} - {{mascota.edad}}</p>
