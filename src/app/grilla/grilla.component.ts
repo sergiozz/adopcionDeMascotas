@@ -19,10 +19,9 @@ export class GrillaComponent implements OnInit {
 
   ngOnInit() {
     if (!this.listadoMascotas) {
-      this.mascotasService.mascotas(null).then(data => {
+      this.mascotasService.getMascotasAdopcion().then(data => {
         this.listadoMascotas = data;
       });
     }
   }
-
 }

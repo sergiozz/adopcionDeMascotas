@@ -19,8 +19,8 @@ export class MascotasService {
 
     constructor(private http: Http) { }
 
-    mascotas(tipo:any): Promise<Mascota[]> {
-        let recurso = this.path +"api/mascotas";
+    getMascotasAdopcion(): Promise<Mascota[]> {
+        let recurso = this.path +"GetMascotasAdopcion";
 
         return this.http.get(recurso)
             .toPromise()
@@ -40,16 +40,6 @@ export class MascotasService {
 
     getMascota(id:any): Promise<Mascota> {
         let recurso = this.path +"api/Mascotas/";
-
-        return this.http
-            .get(recurso, {params: {id: id}})
-            .toPromise()
-            .then(response => response.json() as any[])
-            .catch(this.handleError);
-    }
-
-    getRaza(id:any): Promise<any> {
-        let recurso = this.path +"api/Razas/";
 
         return this.http
             .get(recurso, {params: {id: id}})
