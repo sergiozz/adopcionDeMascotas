@@ -23,6 +23,7 @@ export class AdopcionComponent implements OnInit {
   showSpinnerHistorico: boolean;
   todosLosEstudios: TipoEstudio[];
   obsValue: string;
+  agree: boolean;
 
   constructor(private route: ActivatedRoute, private mascotasService: MascotasService) {
   }
@@ -39,6 +40,7 @@ export class AdopcionComponent implements OnInit {
    this.obsValue = null;
    this.showSpinnerPerfil = true;
    this.showSpinnerHistorico = true;
+   this.agree = false;
 
    this.mascotasService.getMascota(this.id).then(data => {
      this.mascota = data;

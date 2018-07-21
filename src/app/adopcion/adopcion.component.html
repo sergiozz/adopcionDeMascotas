@@ -54,9 +54,27 @@
       </div>
     </div>
 
+    <div class="form-group">
+        <label class="col-xs-3 control-label"><b>Contrato de adopción</b></label>
+        <div class="col-xs-9">
+            <div style="border: 1px solid #e5e5e5; height: 200px; overflow: auto; padding: 10px;">
+                <p>{{mascota.tipoContratoDescripcion}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-6 col-xs-offset-3">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="agree" [(ngModel)]="agree" /> Acepto los terminos del contrato
+                </label>
+            </div>
+        </div>
+    </div>
+
     <div class="row" style="margin-top: 16px; margin-bottom: 24px; ">
       <div class="col-xs-12 col-sm-4 col-md-4" >
-        <button type="submit" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#modalExito" style="margin-top: 16px" (click)='pedirAdopcion()'> Elijo adoptar </button>
+        <button type="submit" class="btn btn-success btn-block btn-lg"  [disabled]="!agree" data-toggle="modal" data-target="#modalExito" style="margin-top: 16px" (click)='pedirAdopcion()'> Solicitar adopción </button>
       </div>
     </div>
 
